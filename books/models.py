@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Book(models.Model):
@@ -9,3 +10,16 @@ class Book(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    text = models.TextField()
+    rating = models.IntegerField(default=3,
+                                 validators=[
+                                     MaxValueValidator(5),
+                                     MinValueValidator(1)
+                                 ])
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.text
