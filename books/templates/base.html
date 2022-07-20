@@ -19,10 +19,24 @@
       <div class="navbar-nav">
         <a class="nav-link" href="{% url 'books' %}">Books</a>
       </div>
+      {% if not user.is_authenticated %}
+          <div class="navbar-nav">
+              <a class="nav-link" href="{% url 'login' %}">Log in</a>
+          </div>
+          <div class="navbar-nav">
+              <a class="nav-link" href="{% url 'register' %}">Register</a>
+          </div>
+          {% endif %}
+          {% if user.is_authenticated %}
+             <div class="navbar-nav">
+                 <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+             </div>
+             <div class="navbar-nav">
+                 <a class="nav-link" href="#">Hello, {{  user.get_username }} </a>
+             </div>
+        {% endif %}
+        </div>
     </div>
-  </div>
 </nav>
 {% block content %}
 {% endblock %}
-</body>
-</html>
