@@ -9,17 +9,21 @@ h1 {
 body {
     background-color: pink;
 }
-p {
-    border: 3px dashed crimson;
 .review-card {
     display: block;
     margin: 20px auto;
     text-align: center;
-    margin: 20px 100px;
 }
 .review-card li {
-    background-color: palegoldenrod;
+    background-color: yellow;
 }
 .container-fluid {
     background-color: palegoldenrod;
+}
+.review-form {
+    margin-left: 40%;
+}
+.review-form input {
+    display: block;
+    margin-bottom: 20px;
 }
